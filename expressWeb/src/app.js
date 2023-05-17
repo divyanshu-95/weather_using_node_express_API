@@ -10,6 +10,7 @@ app.use(express.static(absolutePath))
 //routes
 app.get('/',(req,res)=>{
     res.send('welcome');
+    //welcome
 });
 app.get('/about',(req,res)=>{
     res.send('about');
