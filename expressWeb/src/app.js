@@ -5,21 +5,25 @@ const path=require('path');
 
 //for path
 const absolutePath=path.join(__dirname,"../public")
-app.use(express.static(absolutePath))
+
+app.set('view engine','.hbs');//hbs
+
+app.use(express.static(absolutePath));
+
 
 //routes
 app.get('/',(req,res)=>{
-    res.send('welcome');
+    res.render('index');
     //welcome
 });
 app.get('/about',(req,res)=>{
-    res.send('about');
+    res.render('about');
 });
 app.get('/weather',(req,res)=>{
-    res.send('weather');
+    res.render('weather');
 });
 app.get('*',(req,res)=>{
-    res.send('404 err');
+    res.render('404err');
 });
 app.listen(port,()=>{
     console.log('done')
